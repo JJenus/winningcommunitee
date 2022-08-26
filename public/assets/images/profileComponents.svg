@@ -1,0 +1,25 @@
+<svg width="92" height="102" viewBox="0 0 92 102" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g filter="url(#filter0_d_4854_15308)">
+<rect x="6" y="5" width="80" height="90" rx="5.71429" fill="white"/>
+<rect x="6.75" y="5.75" width="78.5" height="88.5" rx="4.96429" stroke="white" stroke-width="1.5"/>
+</g>
+<rect x="34.75" y="21.75" width="22.5" height="22.5" rx="11.25" fill="white" stroke="#C1C6D2" stroke-width="1.5"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M52.9624 42.7303C50.9877 44.1583 48.5611 45 45.938 45C43.3742 45 40.9981 44.196 39.0483 42.8263C39.0164 42.5553 39 42.2796 39 42C39 38.9627 40.9345 36.3772 43.6385 35.4083C42.068 34.5652 41 32.9073 41 31C41 28.2386 43.2386 26 46 26C48.7614 26 51 28.2386 51 31C51 32.9073 49.932 34.5652 48.3615 35.4083C51.0655 36.3772 53 38.9627 53 42C53 42.2466 52.9872 42.4903 52.9624 42.7303Z" fill="#C1C6D2"/>
+<line x1="27.25" y1="54.75" x2="64.75" y2="54.75" stroke="#C1C6D2" stroke-width="2.5" stroke-linecap="round"/>
+<line x1="19" y1="61" x2="73" y2="61" stroke="#C1C6D2" stroke-opacity="0.4" stroke-width="2" stroke-linecap="round"/>
+<line x1="27" y1="66" x2="65" y2="66" stroke="#C1C6D2" stroke-opacity="0.3" stroke-width="2" stroke-linecap="round"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M34 73C33.4477 73 33 73.4477 33 74V82C33 82.5523 33.4477 83 34 83H60C60.5523 83 61 82.5523 61 82V74C61 73.4477 60.5523 73 60 73H34ZM38 77C37.4477 77 37 77.4477 37 78C37 78.5523 37.4477 79 38 79H56C56.5523 79 57 78.5523 57 78C57 77.4477 56.5523 77 56 77H38Z" fill="#754FFE"/>
+<circle cx="55" cy="40" r="1.6" fill="#20C877" stroke="white" stroke-width="0.8"/>
+<defs>
+<filter id="filter0_d_4854_15308" x="0" y="0" width="92" height="102" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feMorphology radius="1" operator="dilate" in="SourceAlpha" result="effect1_dropShadow_4854_15308"/>
+<feOffset dy="1"/>
+<feGaussianBlur stdDeviation="2.5"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_4854_15308"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_4854_15308" result="shape"/>
+</filter>
+</defs>
+</svg>
