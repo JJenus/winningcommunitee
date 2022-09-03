@@ -1,8 +1,31 @@
 <script setup>
-import { ref } from 'vue';
+import { onMounted, ref } from "vue";
+import axios from "axios";
 
+const env = import.meta.env;
+let telegramLink = ref("https://T.me/bankswin");
 
-let telegramLink = ref("https://T.me/bankswin")
+function getSettings() {
+  let config = {
+    method: "GET",
+    url: `${env.VITE_BE_API}/settings`,
+  };
+
+  axios
+    .request(config)
+    .then((res) => {
+      let data = res.data;
+      console.log(data);
+      if (data.telegramLink) telegramLink.value = data.telegramLink;
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+}
+
+onMounted(() => {
+  getSettings();
+});
 </script>
 
 <template>
@@ -13,11 +36,19 @@ let telegramLink = ref("https://T.me/bankswin")
           <h4 class="text-center mb-3 display-4">Join us on Telegram</h4>
           <p>
             Join the discussion on telegram and get extensive, well thought-of,
-            and customised football (soccer) picks. Join and have automatic access to VIP and free groups.
+            and customised football (soccer) picks. Join and have automatic
+            access to VIP and free groups.
           </p>
-          <div class="d-flex flex-column justify-content-center align-items-center">
-            <img src="assets/images/logo/favicon.png" width="" class="img-fluid mb-2" alt="">
-            <h1 class="display-5 text-warning mb-6 ">Winning community</h1>
+          <div
+            class="d-flex flex-column justify-content-center align-items-center"
+          >
+            <img
+              src="assets/images/logo/favicon.png"
+              width=""
+              class="img-fluid mb-2"
+              alt=""
+            />
+            <h1 class="display-5 text-warning mb-6">Winning community</h1>
             <a :href="telegramLink" class="btn btn-primary">Join On Telegram</a>
           </div>
         </div>

@@ -7,7 +7,6 @@ import LiveScores from "@/views/LiveScores.vue";
 import SuperPicks from "@/views/SuperPicks.vue";
 
 const AppName = "Community winners";
-console.log(import.meta.env.BASE_URL);
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),

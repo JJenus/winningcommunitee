@@ -28,7 +28,7 @@ function prediction(){
     }
     else if (type === "Total"){
         type = "";
-        pick = pick[0] + pick.split(" ")[1];
+        //pick = pick[0] + pick.split(" ")[1];
     }
     else if (type === "Both teams to score"){
         type = "Bts";

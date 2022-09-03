@@ -18,7 +18,6 @@ function fetchPredictions() {
     .request(config)
     .then((res) => {
       let data = res.data;
-      console.log(data);
       predictions.value = data;
     })
     .catch((error) => {
@@ -28,8 +27,6 @@ function fetchPredictions() {
 
 onMounted(() => {
   fetchPredictions();
-
-  //loadPredictions();
 });
 
 (function (w, d, s, o, f, js, fjs) {
