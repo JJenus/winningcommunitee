@@ -11,10 +11,20 @@ let path = ref("");
 
 onMounted(async () => {
   await router.isReady();
-  console.log(route.name);
   path.value = route.name;
 });
 </script>
+
+<style>
+  @media(max-width: 576px){
+    .float-sm{
+      bottom: 0!important;
+      right: 0 !important;
+      margin-bottom: 10px !important;
+      margin-right: 10px !important;
+    }
+  }
+</style>
 
 <template>
   <div class="bg-dark pt-xl-16 pt-lg-10 pt-4">
@@ -102,7 +112,7 @@ onMounted(async () => {
 
                 <a
                   href="/livescores"
-                  class="btn fw-bold d-none d-sm-block m-1 m-md-2"
+                  class="btn fw-bold float-sm position-fixed position-md-relative  m-1 m-md-2"
                   :class="path === 'livescores' ? 'btn-warning' : 'btn-primary'"
                 >
                   <div class="d-md-flex">
