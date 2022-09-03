@@ -1,51 +1,35 @@
 <script setup>
 import axios from "axios";
 import { onMounted, ref } from "vue";
-import { useCounterStore, predictionStore } from "@/stores/store";
 import Fixture from "@/components/freepicks/fixture.vue";
 
 //CODES
-const options = {
-  method: "GET",
-  url: "https://football-prediction-api.p.rapidapi.com/api/v2/predictions",
-  //params: { market: "classic", iso_date: "2022-08-20" },
-  headers: {
-    "X-RapidAPI-Key": "4e7d8bec8cmsha01fa385aca3b94p1f767ejsn6c53b309ac79",
-    "X-RapidAPI-Host": "football-prediction-api.p.rapidapi.com",
-  },
-};
+const env = import.meta.env;
 
 const predictions = ref([]);
 
-function loadCount() {
-  let temp = useCounterStore();
-  temp.increment();
-  predictions.value = temp.count;
-  console.log(predictions.value);
-}
-
-function loadPredictions() {
-  let temp = predictionStore();
-  predictions.value = temp.predictions.splice(0, 50);
-}
-
 function fetchPredictions() {
+  let config = {
+    method: "GET",
+    url: `${env.VITE_BE_API}/predictions/free-picks`,
+  };
+
   axios
-    .request(options)
-    .then((response) => {
-      console.log(response.data);
-      predictions.value = response.data;
-      console.log(predictions.value);
+    .request(config)
+    .then((res) => {
+      let data = res.data;
+      console.log(data);
+      predictions.value = data;
     })
-    .catch(function (error) {
-      console.error(error);
+    .catch((error) => {
+      console.log(error);
     });
 }
 
 onMounted(() => {
-  //fetchPredictions();
+  fetchPredictions();
 
-  loadPredictions();
+  //loadPredictions();
 });
 
 (function (w, d, s, o, f, js, fjs) {
