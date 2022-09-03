@@ -1,17 +1,19 @@
 <script setup>
-import { onMounted, ref } from 'vue';
-import { useRoute, useRouter } from 'vue-router';
+import { onMounted, ref } from "vue";
+import { useRoute, useRouter } from "vue-router";
+
+const env = import.meta.env;
 
 const router = useRouter();
 const route = useRoute();
 
-let path = ref('')
+let path = ref("");
 
-onMounted(async ()=>{
+onMounted(async () => {
   await router.isReady();
-  console.log(route.name)
+  console.log(route.name);
   path.value = route.name;
-})
+});
 </script>
 
 <template>
@@ -23,8 +25,10 @@ onMounted(async ()=>{
           <div class="mb-4 text-center text-xl-center px-md-8 px-lg-19 px-xl-0">
             <!-- Caption -->
             <h1 class="display-2 fw-bold mb-3 text-white ls-sm">
-              Winning 
-              <span class="text-warning "><span class="text-light">-</span> Community</span>
+              Winning
+              <span class="text-warning"
+                ><span class="text-light">-</span> Community</span
+              >
             </h1>
             <p class="mb-6 lead text-white-50 pe-lg-6">Football predictions.</p>
             <!-- List -->
@@ -33,7 +37,7 @@ onMounted(async ()=>{
                 <a
                   href="/free-picks"
                   class="btn fw-bold m-1 m-md-2"
-                  :class="path === 'freepicks'? 'btn-warning':'btn-primary'"
+                  :class="path === 'freepicks' ? 'btn-warning' : 'btn-primary'"
                 >
                   <div class="d-md-flex">
                     <div class="me-md-2">
@@ -55,7 +59,7 @@ onMounted(async ()=>{
                 <a
                   href="/super-picks"
                   class="btn fw-bold m-1 m-md-2"
-                  :class="path === 'superpicks'? 'btn-warning':'btn-primary'"
+                  :class="path === 'superpicks' ? 'btn-warning' : 'btn-primary'"
                 >
                   <div class="d-md-flex">
                     <div class="me-md-2">
@@ -74,8 +78,10 @@ onMounted(async ()=>{
                   </div>
                 </a>
 
-                <a href="/telegram" class="btn fw-bold m-1 m-md-2" 
-                    :class="path === 'telegram'? 'btn-warning':'btn-primary'"
+                <a
+                  href="/telegram"
+                  class="btn fw-bold m-1 m-md-2"
+                  :class="path === 'telegram' ? 'btn-warning' : 'btn-primary'"
                 >
                   <div class="d-md-flex">
                     <div class="me-md-2">
@@ -97,7 +103,7 @@ onMounted(async ()=>{
                 <a
                   href="/livescores"
                   class="btn fw-bold d-none d-sm-block m-1 m-md-2"
-                  :class="path === 'livescores'? 'btn-warning':'btn-primary'"
+                  :class="path === 'livescores' ? 'btn-warning' : 'btn-primary'"
                 >
                   <div class="d-md-flex">
                     <div class="me-md-2">
@@ -119,7 +125,7 @@ onMounted(async ()=>{
                 <a
                   href="/contact-us"
                   class="btn fw-bold m-1 m-md-2"
-                  :class="path === 'contactus'? 'btn-warning':'btn-primary'"
+                  :class="path === 'contactus' ? 'btn-warning' : 'btn-primary'"
                 >
                   <div class="d-md-flex">
                     <div class="me-md-2">
