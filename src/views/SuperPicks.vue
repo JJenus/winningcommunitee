@@ -1,15 +1,17 @@
 <script setup>
 import axios from "axios";
 import { onMounted, ref } from "vue";
-import { useCounterStore, predictionStore } from "@/stores/store";
 import { util } from "../stores/utility";
 import Pick from "../components/superpicks/Pick.vue";
+import VIP from "../components/superpicks/VIP.vue";
 
+const env = import.meta.env;
+console.log(env.VITE_BE_API);
 //CODES
 const options = {
   method: "GET",
   url: "https://sports-betting-predictions.p.rapidapi.com/v1/prediction",
-  params: { sport_id: "1", date: "2021-09-09" },
+  params: { sport_id: "1", date: "2022-08-28" },
   headers: {
     "X-RapidAPI-Key": "4e7d8bec8cmsha01fa385aca3b94p1f767ejsn6c53b309ac79",
     "X-RapidAPI-Host": "sports-betting-predictions.p.rapidapi.com",
@@ -17,43 +19,56 @@ const options = {
 };
 
 const predictions = ref([]);
+let rawSuperPicks = [];
 const vipPicks = ref([]);
 
-function loadCount() {
-  let temp = useCounterStore();
-  temp.increment();
-  predictions.value = temp.count;
-  console.log(predictions.value);
-}
-
 function loadPredictions() {
-  let temp = predictionStore();
-  predictions.value = temp.getSuperPicks().splice(0, 10);
-  console.log(predictions.value);
+  let prob = 0.8;
+  do {
+    predictions.value = getSuperPicks(predictions.value, prob).splice(0, 10);
+    prob = util.format(prob - 0.01, 2, ".", ",");
+  } while (predictions.value.length < 10);
+
+  //console.log(predictions.value);
 }
 
-function loadSuperPicks() {
-  let temp = predictionStore();
-  vipPicks.value = temp
-    .getSuperPicks(0.8)
-    .splice(0, 4)
-    .map((e) => {
-      e.prediction = rand() + "-" + rand();
-      e.market_name = "CS";
-      return e;
+function getSuperPicks(data, per = 0.78) {
+  return rawSuperPicks.filter((e) => {
+    return Number(e.probability) * 100 === Number(per) * 100;
+  });
+}
+
+function fetchVipPicks() {
+  let config = {
+    method: "GET",
+    url: `${env.VITE_BE_API}/predictions/vip-picks`,
+  };
+
+  axios
+    .request(config)
+    .then((res) => {
+      let data = res.data;
+      console.log(data);
+      vipPicks.value = data;
+    })
+    .catch((error) => {
+      console.log(error);
     });
 }
 
-function rand() {
-  return (Math.random() * 4) | 0;
-}
-
 function fetchPredictions() {
+  let config = {
+    method: "GET",
+    url: `${env.VITE_BE_API}/predictions/super-picks`,
+  };
+
   axios
-    .request(options)
+    .request(config)
     .then((response) => {
-      console.log(response.data);
-      //predictions.value = response.data;
+      let data = response.data;
+      console.log(data);
+      rawSuperPicks=data;
+      loadPredictions();
       //console.log(predictions.value);
     })
     .catch(function (error) {
@@ -67,9 +82,8 @@ function totalSuperOdd() {
 }
 
 onMounted(() => {
-  //fetchPredictions();
-  loadSuperPicks();
-  loadPredictions();
+  fetchVipPicks();
+  fetchPredictions();
 });
 </script>
 
@@ -136,15 +150,12 @@ onMounted(() => {
                         <tr class="bg-dark text-warning">
                           <th colspan="">Super picks</th>
                           <td class="align-middle">Pick</td>
-                          <td class="align-middle">Odd</td>
-                          <td class="align-middle">Win %</td>
                           <td class="align-middle">Result</td>
-                          <td class="align-middle">Status</td>
                         </tr>
                       </thead>
 
                       <tbody>
-                        <Pick v-for="pick in vipPicks" :fixture="pick"></Pick>
+                        <VIP v-for="pick in vipPicks" :fixture="pick"></VIP>
                       </tbody>
                     </table>
                   </div>
