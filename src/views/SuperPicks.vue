@@ -5,18 +5,8 @@ import { util } from "../stores/utility";
 import Pick from "../components/superpicks/Pick.vue";
 import VIP from "../components/superpicks/VIP.vue";
 
-const env = import.meta.env;
-console.log(env.VITE_BE_API);
 //CODES
-const options = {
-  method: "GET",
-  url: "https://sports-betting-predictions.p.rapidapi.com/v1/prediction",
-  params: { sport_id: "1", date: "2022-08-28" },
-  headers: {
-    "X-RapidAPI-Key": "4e7d8bec8cmsha01fa385aca3b94p1f767ejsn6c53b309ac79",
-    "X-RapidAPI-Host": "sports-betting-predictions.p.rapidapi.com",
-  },
-};
+const env = import.meta.env;
 
 const predictions = ref([]);
 let rawSuperPicks = [];
@@ -28,8 +18,6 @@ function loadPredictions() {
     predictions.value = getSuperPicks(predictions.value, prob).splice(0, 10);
     prob = util.format(prob - 0.01, 2, ".", ",");
   } while (predictions.value.length < 10);
-
-  //console.log(predictions.value);
 }
 
 function getSuperPicks(data, per = 0.78) {
@@ -66,10 +54,8 @@ function fetchPredictions() {
     .request(config)
     .then((response) => {
       let data = response.data;
-      console.log(data);
       rawSuperPicks=data;
       loadPredictions();
-      //console.log(predictions.value);
     })
     .catch(function (error) {
       console.error(error);
