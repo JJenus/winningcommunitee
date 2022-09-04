@@ -23,6 +23,23 @@ function getSettings() {
     });
 }
 
+function interact() {
+  let config = {
+    method: "POST",
+    url: `${env.VITE_BE_API}/interact/telegram/click`,
+  };
+
+  axios
+    .request(config)
+    .then((res) => {
+      let data = res.data;
+      console.log(data);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+}
+
 onMounted(() => {
   getSettings();
 });
@@ -49,7 +66,7 @@ onMounted(() => {
               alt=""
             />
             <h1 class="display-5 text-warning mb-6">Winning community</h1>
-            <a :href="telegramLink" class="btn btn-primary">Join On Telegram</a>
+            <a :href="telegramLink" class="btn btn-primary" target="_blank" @click="interact()">Join On Telegram</a>
           </div>
         </div>
       </div>
