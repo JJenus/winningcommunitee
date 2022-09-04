@@ -1,3 +1,7 @@
+<script setup>
+const env = import.meta.env;
+</script>
+
 <template>
   <div class="container">
     <div
@@ -18,7 +22,7 @@
       </div>
       <!-- img -->
       <div class="offset-xl-1 col-xl-6 col-lg-6 col-md-12 col-12 mt-8 mt-lg-0">
-        <img src="assets/images/404-error-img.svg" alt="" class="w-100" />
+        <img :src="env.VITE_BASE_URL + '/assets/images/404-error-img.svg'" alt="" class="w-100" />
       </div>
     </div>
   </div>

@@ -60,7 +60,7 @@ onMounted(() => {
             class="d-flex flex-column justify-content-center align-items-center"
           >
             <img
-              src="assets/images/logo/favicon.png"
+              :src="env.VITE_BASE_URL + '/assets/images/logo/favicon.png'"
               width=""
               class="img-fluid mb-2"
               alt=""

@@ -1,6 +1,7 @@
 <script setup>
 import moment from 'moment';
 
+const env = import.meta.env;
 function dateNow(){
   return moment().format("YYYY-MM-DD");
 }
@@ -14,7 +15,7 @@ function dateNow(){
           <div class="text-center px-lg-8">
             <div class="p-4 p-md-0">
               <img
-                src="assets/images/logo/logo.png"
+                :src="env.VITE_BASE_URL+'/assets/images/logo/logo.png'"
                 alt=""
                 class="img-fluid mb-3"
               />

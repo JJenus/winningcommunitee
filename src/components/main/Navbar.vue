@@ -53,7 +53,7 @@ onMounted(async () => {
                     <div class="me-md-2">
                       <img
                         width="24"
-                        src="assets/images/png/ball-dark.png"
+                        :src="env.VITE_BASE_URL+'/assets/images/png/ball-dark.png'"
                         alt=""
                       />
                     </div>
@@ -75,7 +75,7 @@ onMounted(async () => {
                     <div class="me-md-2">
                       <img
                         width="24"
-                        src="assets/images/png/goal-dark.png"
+                        :src="env.VITE_BASE_URL+'/assets/images/png/goal-dark.png'"
                         alt=""
                       />
                     </div>
@@ -97,7 +97,7 @@ onMounted(async () => {
                     <div class="me-md-2">
                       <img
                         width="24"
-                        src="assets/images/png/telegram-dark.png"
+                        :src="env.VITE_BASE_URL+'/assets/images/png/telegram-dark.png'"
                         alt=""
                       />
                     </div>
@@ -119,7 +119,7 @@ onMounted(async () => {
                     <div class="me-md-2">
                       <img
                         width="24"
-                        src="assets/images/png/live-dark.png"
+                        :src="env.VITE_BASE_URL+'/assets/images/png/live-dark.png'"
                         alt=""
                       />
                     </div>
@@ -141,7 +141,7 @@ onMounted(async () => {
                     <div class="me-md-2">
                       <img
                         width="24"
-                        src="assets/images/png/contact-dark.png"
+                        :src="env.VITE_BASE_URL+'/assets/images/png/contact-dark.png'"
                         alt=""
                       />
                     </div>
