@@ -29,6 +29,7 @@ export const util = {
 
 export const storage = {
 	save(type, data) {
+		console.log("Saving to localstorage...", type)
 		if (data.length < 1) return;
 		const obj = {
 			data: data,
@@ -39,9 +40,9 @@ export const storage = {
 	},
 
 	reload(type = "superpick") {
-		localStorage.clear();
+		console.log("Reloading from localstorage...")
 		const obj = localStorage.getItem("wc_pack_" + type);
-		if (obj !== "undefined" && obj !== null && !obj) {
+		if (obj !== "undefined" && obj !== null && obj) {
 			const data = JSON.parse(obj);
 			let isExp = moment(data.time).isAfter(
 				moment().format("YYYY-MM-DD HH:mm:ss")
@@ -49,7 +50,10 @@ export const storage = {
 			if (isExp) {
 				return [];
 			}
+			console.log(data.data)
 			return data.data;
+		}else{
+			console.log("not found", obj)
 		}
 		return [];
 	},

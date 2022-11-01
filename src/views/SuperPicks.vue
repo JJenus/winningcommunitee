@@ -9,8 +9,10 @@
 	const env = import.meta.env;
 
 	const predictions = ref([]);
+	const loadingSuperPicks = ref(true);
 	let rawSuperPicks = [];
 	const vipPicks = ref([]);
+	const loadingVipPicks = ref(true);
 
 	function loadPredictions() {
 		let prob = 0.8;
@@ -38,6 +40,7 @@
 
 		if (data.length > 0) {
 			vipPicks.value = data;
+			loadingVipPicks.value = false;
 			return;
 		}
 
@@ -50,6 +53,9 @@
 			})
 			.catch((error) => {
 				console.log(error);
+			})
+			.finally(() => {
+				loadingVipPicks.value = false;
 			});
 	}
 
@@ -63,6 +69,7 @@
 
 		if (data.length > 0) {
 			predictions.value = data;
+			loadingSuperPicks.value = false;
 			return;
 		}
 
@@ -75,6 +82,9 @@
 			})
 			.catch(function (error) {
 				console.log(error);
+			})
+			.finally(() => {
+				loadingSuperPicks.value = false;
 			});
 	}
 
@@ -114,10 +124,7 @@
 									</thead>
 
 									<tbody>
-										<tr
-											v-if="predictions.length < 1"
-											class=""
-										>
+										<tr v-if="loadingSuperPicks" class="">
 											<td colspan="7" class="">
 												<div
 													class="text-center w-100 p-5"
@@ -128,8 +135,20 @@
 												</div>
 											</td>
 										</tr>
+										<tr
+											v-else-if="predictions.length < 1"
+											class=""
+										>
+											<td colspan="7" class="">
+												<div
+													class="text-center text-mute w-100 p-5"
+												>
+													No data
+												</div>
+											</td>
+										</tr>
+
 										<Pick
-											v-else
 											v-for="pick in predictions"
 											:fixture="pick"
 										></Pick>
@@ -188,10 +207,10 @@
 
 											<tbody>
 												<tr
-													v-if="vipPicks.length < 1"
+													v-if="loadingVipPicks"
 													class=""
 												>
-													<td colspan="7" class="">
+													<td colspan="3" class="">
 														<div
 															class="text-center w-100 p-5"
 														>
@@ -201,8 +220,21 @@
 														</div>
 													</td>
 												</tr>
+												<tr
+													v-else-if="
+														vipPicks.length < 1
+													"
+													class=""
+												>
+													<td colspan="3" class="">
+														<div
+															class="text-center text-mute w-100 p-5"
+														>
+															No data
+														</div>
+													</td>
+												</tr>
 												<VIP
-													v-else
 													v-for="pick in vipPicks"
 													:fixture="pick"
 												></VIP>

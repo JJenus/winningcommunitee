@@ -9,11 +9,14 @@
 
 	const predictions = ref([]);
 
-	function fetchPredictions() {
+	let loadingPredictions = ref(true);
+
+	async function fetchPredictions() {
 		const data = storage.reload("free_picks");
 
 		if (data.length > 0) {
 			predictions.value = data;
+			loadingPredictions.value = false;
 			return;
 		}
 
@@ -25,13 +28,15 @@
 		axios
 			.request(config)
 			.then((res) => {
-				console.log(res)
+				console.log(res);
 				let data = res.data;
 				predictions.value = data;
 				storage.save("free_picks", data);
 			})
 			.catch((error) => {
 				console.log(error);
+			}).finally(()=>{
+				loadingPredictions.value = false;
 			});
 	}
 
@@ -82,22 +87,32 @@
 
 									<tbody>
 										<tr
-											v-if="predictions.length < 1"
+											v-if="loadingPredictions"
 											class=""
 										>
-											<td
-												colspan="7"
-												class=""
-											>
+											<td colspan="7" class="">
 												<div
 													class="text-center w-100 p-5"
 												>
-                        <span class="spinner-border"></span>
-                      </div>
+													<span
+														class="spinner-border"
+													></span>
+												</div>
+											</td>
+										</tr>
+										<tr
+											v-else-if="predictions.length < 1"
+											class=""
+										>
+											<td colspan="7" class="">
+												<div
+													class="text-center text-mute w-100 p-5"
+												>
+													No data
+												</div>
 											</td>
 										</tr>
 										<Fixture
-											v-else
 											v-for="prediction in predictions"
 											:fixture="prediction"
 										></Fixture>
