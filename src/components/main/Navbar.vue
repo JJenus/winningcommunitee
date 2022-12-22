@@ -34,101 +34,55 @@ onMounted(async () => {
         <div class="col-md-12 py-2 py-xl-0">
           <div class="mb-4 text-center text-xl-center px-md-8 px-lg-19 px-xl-0">
             <!-- Caption -->
-            <h1 class="display-2 fw-bold mb-3 text-white ls-sm">
+            <h1 class="display-5 display-md-2 fw-bold mb-3 text-white ls-sm">
               Winning
               <span class="text-warning"
                 ><span class="text-light">-</span> Community</span
               >
             </h1>
-            <p class="mb-6 lead text-white-50 pe-lg-6">Football predictions.</p>
+            <p class="mb-6 lead text-white-50 pe-lg-6">A community to built trust.</p>
             <!-- List -->
             <div class="sticky-top mx-n4">
               <div class="tab d-flex justify-content-center flex-wrap">
                 <a
-                  href="/free-picks"
+                  href="/home"
                   class="btn fw-bold m-1 m-md-2"
-                  :class="path === 'freepicks' ? 'btn-warning' : 'btn-primary'"
+                  :class="path === 'home' ? 'btn-warning' : 'btn-primary'"
                 >
-                  <div class="d-md-flex">
+                  <div class="d-md-flex align-items-center">
                     <div class="me-md-2">
-                      <img
-                        width="24"
-                        :src="env.VITE_BASE_URL+'/assets/images/png/ball-dark.png'"
-                        alt=""
-                      />
+                      <i class="bi bi-house fs-3"></i>
                     </div>
-                    <span class="d-none d-md-inline">Free picks</span>
-                    <small class="d-md-none h4 fw-bold">
-                      <small>
-                        <small>Free</small>
-                      </small>
-                    </small>
+                    <span class="fs-6 d-md-none">Home</span>
+                    <span class="fs-5 d-none d-md-inline">Home</span>
                   </div>
                 </a>
-
-                <a
-                  href="/super-picks"
-                  class="btn fw-bold m-1 m-md-2"
-                  :class="path === 'superpicks' ? 'btn-warning' : 'btn-primary'"
-                >
-                  <div class="d-md-flex">
-                    <div class="me-md-2">
-                      <img
-                        width="24"
-                        :src="env.VITE_BASE_URL+'/assets/images/png/goal-dark.png'"
-                        alt=""
-                      />
-                    </div>
-                    <span class="d-none d-md-inline">Super picks</span>
-                    <small class="d-md-none h4 fw-bold">
-                      <small>
-                        <small>Picks</small>
-                      </small>
-                    </small>
-                  </div>
-                </a>
-
-                <a
-                  href="/telegram"
-                  class="btn fw-bold m-1 m-md-2"
-                  :class="path === 'telegram' ? 'btn-warning' : 'btn-primary'"
-                >
-                  <div class="d-md-flex">
-                    <div class="me-md-2">
-                      <img
-                        width="24"
-                        :src="env.VITE_BASE_URL+'/assets/images/png/telegram-dark.png'"
-                        alt=""
-                      />
-                    </div>
-                    <span class="d-none d-md-inline">Telegram</span>
-                    <small class="d-md-none h4 fw-bold">
-                      <small>
-                        <small>Chat</small>
-                      </small>
-                    </small>
-                  </div>
-                </a>
-
+                
                 <a
                   href="/livescores"
-                  class="btn fw-bold float-sm position-fixed position-md-relative  m-1 m-md-2"
+                  class="btn fw-bold m-1 m-md-2"
                   :class="path === 'livescores' ? 'btn-warning' : 'btn-primary'"
                 >
-                  <div class="d-md-flex">
+                  <div class="d-md-flex align-items-center">
                     <div class="me-md-2">
-                      <img
-                        width="24"
-                        :src="env.VITE_BASE_URL+'/assets/images/png/live-dark.png'"
-                        alt=""
-                      />
+                      <i class="bi bi-broadcast fs-3"></i> 
                     </div>
-                    <span class="d-none d-md-inline">Livescores</span>
-                    <small class="d-md-none h4 fw-bold">
-                      <small>
-                        <small>Live</small>
-                      </small>
-                    </small>
+                    <span class="fs-6 d-md-none">Live</span>
+                    <span class="fs-5 d-none d-md-inline">Live Scores</span>
+                  </div>
+                </a>
+
+                <a
+                  href="/about"
+                  class="btn fw-bold m-1 m-md-2"
+                  :class="path === 'about' ? 'btn-warning' : 'btn-primary'"
+                >
+                  <div class="d-md-flex align-items-center">
+                    <div class="me-md-2">
+                      <i class="bi bi-question-circle fs-3"></i>
+                    </div>
+                    <span class="fs-6 d-md-none">About</span>
+                    <span class="fs-5 d-none d-md-inline">About</span>
                   </div>
                 </a>
 
@@ -137,20 +91,12 @@ onMounted(async () => {
                   class="btn fw-bold m-1 m-md-2"
                   :class="path === 'contactus' ? 'btn-warning' : 'btn-primary'"
                 >
-                  <div class="d-md-flex">
+                  <div class="d-md-flex align-items-center">
                     <div class="me-md-2">
-                      <img
-                        width="24"
-                        :src="env.VITE_BASE_URL+'/assets/images/png/contact-dark.png'"
-                        alt=""
-                      />
+                      <i class="bi bi-headset fs-3"></i>
                     </div>
-                    <span class="d-none d-md-inline">Contact</span>
-                    <small class="d-md-none h4 fw-bold">
-                      <small>
-                        <small>Help</small>
-                      </small>
-                    </small>
+                    <span class="fs-6 d-md-none">Contact</span>
+                    <span class="fs-5 d-none d-md-inline">Contact</span>
                   </div>
                 </a>
               </div>
