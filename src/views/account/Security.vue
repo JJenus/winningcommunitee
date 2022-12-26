@@ -1,3 +1,15 @@
+<script setup>
+	import axios from "axios";
+	import { onMounted, ref } from "vue";
+	import { user } from "@/stores/user";
+
+	const env = import.meta.env;
+	const appUser = user.getUser();
+
+	onMounted(() => {
+	});
+</script>
+
 <template>
 	<div class="card">
 		<!-- Card header -->
@@ -12,7 +24,7 @@
 			<h4 class="mb-0">Email Address</h4>
 			<p>
 				Your current email address is
-				<span class="text-success">stellaflores@gmail.com</span>
+				<span class="text-success">{{ appUser.email }}</span>
 			</p>
 			<form class="row">
 				<div class="mb-3 col-lg-6 col-md-12 col-12">

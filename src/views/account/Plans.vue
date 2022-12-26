@@ -47,7 +47,7 @@
 				</div>
 				<PlanVue v-for="plan in plans" :plan="plan"></PlanVue>
 			</div>
-            <div v-if="plans.length === 0" class="d-flex align-items-center justify-content-center fs-2">
+            <div v-if="plans.length === 0" class="d-flex align-items-center justify-content-center fs-5 text-muted">
                 No plans
             </div>
 		</div>

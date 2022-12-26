@@ -5,6 +5,8 @@ import SubscriptionsVue from "@/views/account/Subscriptions.vue";
 import Profile from "@/views/account/Profile.vue";
 import Security from "@/views/account/Security.vue";
 import Plans from "@/views/account/Plans.vue";
+import Games from "@/views/account/Games.vue";
+
 
 // Main views
 import MainVue from "@/views/Main.vue";
@@ -38,18 +40,27 @@ const router = createRouter({
 				{
 					path: "subscriptions",
 					component: SubscriptionsVue,
+					name: "subscriptions"
 				},
 				{
 					path: "profile",
 					component: Profile,
+					name: "profile"
 				},
 				{
 					path: "security",
 					component: Security,
+					name: "security"
 				},
 				{
 					path: "plans",
 					component: Plans,
+					name: "plans"
+				},
+				{
+					path: "games",
+					component: Games,
+					name: "games"
 				},
 			],
 		},

@@ -1,3 +1,14 @@
+<script setup>
+	import axios from "axios";
+	import { onMounted, ref } from "vue";
+	import { user } from "@/stores/user";
+
+	const env = import.meta.env;
+	const appUser = user.getUser();
+
+	onMounted(() => {});
+</script>
+
 <template>
 	<div class="card">
 		<!-- Card header -->
@@ -12,7 +23,7 @@
 			<div class="d-lg-flex align-items-center justify-content-between">
 				<div class="d-flex align-items-center mb-4 mb-lg-0">
 					<img
-						src="../assets/images/avatar/avatar-3.jpg"
+						src="/assets/images/background/profile-bg.jpg"
 						id="img-uploaded"
 						class="avatar-xl rounded-circle"
 						alt=""

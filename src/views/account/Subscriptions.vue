@@ -2,6 +2,7 @@
 	import axios from "axios";
 	import { onMounted, ref } from "vue";
 	import SubscriptionVue from "@/components/account/subscriptions/Subscription.vue";
+	import { user } from "@/stores/user";
 
 	const env = import.meta.env;
 	const subscriptions = ref([]);
@@ -9,7 +10,7 @@
 	async function loadSubscriptions() {
 		let config = {
 			method: "GET",
-			url: `${env.VITE_BE_API}/user-subscriptions`,
+			url: `${env.VITE_BE_API}/user-subscriptions/${user.getUser().id}`,
 		};
 
 		axios

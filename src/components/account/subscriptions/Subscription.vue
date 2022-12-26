@@ -32,7 +32,7 @@
 </script>
 
 <template>
-	<div class="border-bottom pt-0 pb-5">
+	<div class="border-bottom pt-0 pb-5 mb-3">
 		<div class="row mb-4">
 			<div class="col-lg-6 col-md-8 col-7 mb-2 mb-lg-0">
 				<span class="d-block">
@@ -55,7 +55,7 @@
 						type="checkbox"
 						class="form-check-input"
 						id="customSwitch1"
-						checked
+						
 					/>
 					<label class="form-check-label" for="customSwitch1"></label>
 				</div>
@@ -63,7 +63,7 @@
 			<div
 				class="col-lg-3 col-md-12 col-12 d-lg-flex align-items-start justify-content-end"
 			>
-				<a href="#" class="btn btn-outline-primary btn-sm"
+				<a href="#" class="btn btn-outline-primary d-none btn-sm"
 					>Change Plan</a
 				>
 			</div>

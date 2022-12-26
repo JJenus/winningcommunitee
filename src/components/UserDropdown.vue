@@ -3,7 +3,6 @@
 
 	const auth = useAuthStore();
 	const user = auth.getUser();
-	
 </script>
 
 <template>
@@ -30,13 +29,15 @@
 					<div
 						class="avatar avatar-md avatar-indicators avatar-online"
 					>
-						<img
-							v-if="user.imgUrl !== null"
-							alt="avatar"
-							:src="user.imgUrl"
-							class="rounded-circle"
-						/>
-						<i v-else class="bi bi-person-circle fs-2"></i>
+						<a href="/account" class="text-dark">
+							<img
+								v-if="user.imgUrl !== null"
+								alt="avatar"
+								:src="user.imgUrl"
+								class="rounded-circle"
+							/>
+							<i v-else class="bi bi-person-circle fs-2"></i>
+						</a>
 					</div>
 					<div class="ms-3 lh-1">
 						<h5 class="mb-1">{{ user.name }}</h5>
@@ -65,10 +66,7 @@
 			<div class="dropdown-divider"></div>
 			<ul class="list-unstyled">
 				<li>
-					<a
-						class="dropdown-item"
-						@click="auth.logout()"
-					>
+					<a class="dropdown-item" @click="auth.logout()">
 						<i class="fe fe-power me-2"></i>Sign Out
 					</a>
 				</li>
