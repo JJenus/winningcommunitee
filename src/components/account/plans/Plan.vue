@@ -112,7 +112,7 @@
 		</div>
 	</div>
 
-	<div class="col-lg-4 col-md-12 col-12">
+	<div class="col-lg-4 col-md-6 col-12">
 		<!-- Card -->
 		<div class="card mb-3 border border-top-0">
 			<!-- Card body -->

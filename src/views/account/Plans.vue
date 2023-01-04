@@ -3,8 +3,8 @@
 	import { onMounted, ref } from "vue";
 	import PlanVue from "@/components/account/plans/Plan.vue";
 
-    const env = import.meta.env;
-    const plans = ref([]);
+	const env = import.meta.env;
+	const plans = ref([]);
 
 	async function loadPlans() {
 		let config = {
@@ -16,7 +16,10 @@
 			.request(config)
 			.then((res) => {
 				console.log(res);
-				let data = res.data;
+				let data = res.data.sort((a, b) => {
+					return a.amount - b.amount;
+				});
+				console.log(data);
 				plans.value = data;
 			})
 			.catch((error) => {
@@ -47,9 +50,12 @@
 				</div>
 				<PlanVue v-for="plan in plans" :plan="plan"></PlanVue>
 			</div>
-            <div v-if="plans.length === 0" class="d-flex align-items-center justify-content-center fs-5 text-muted">
-                No plans
-            </div>
+			<div
+				v-if="plans.length === 0"
+				class="d-flex align-items-center justify-content-center fs-5 text-muted"
+			>
+				No plans
+			</div>
 		</div>
 	</div>
 </template>

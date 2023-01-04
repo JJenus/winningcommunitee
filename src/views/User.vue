@@ -3,7 +3,6 @@
 
 	import NavbarVue from "@/components/account/Navbar.vue";
 	import SidebarVue from "@/components/account/Sidebar.vue";
-	
 </script>
 
 <template>
@@ -25,6 +24,9 @@
 				</div>
 			</div>
 		</div>
+	</div>
+	<div class="arrow-indicator d-none text-primary position-fixed">
+		<i class="bi bi-arrow-right fs-1"></i>
 	</div>
 </template>
 
