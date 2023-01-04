@@ -81,13 +81,75 @@
 
 		<!-- Theme CSS -->
 		<title>Winning community - Football predictions</title>
+
+		<style>
+			.arrow-indicator {
+				bottom: 0;
+				right: 80px;
+				animation: blink 1s linear infinite;
+			}
+
+			.grabShake{
+				animation: shake 1s linear infinite;
+			}
+
+			.grabBlink{
+				animation: blink 1s linear infinite;
+			}
+
+			@keyframes blink {
+				0% {
+					opacity: 0.2;
+				}
+				50% {
+					opacity: 0.6;
+				}
+				100% {
+					opacity: 1;
+				}
+			}
+
+			@keyframes shake {
+				10%,
+				90% {
+					transform: translate3d(-1px, 0, 0);
+				}
+
+				20%,
+				80% {
+					transform: translate3d(2px, 0, 0);
+				}
+
+				30%,
+				50%,
+				70% {
+					transform: translate3d(-4px, 0, 0);
+				}
+
+				40%,
+				60% {
+					transform: translate3d(4px, 0, 0);
+				}
+			}
+
+			@media (min-width: 576px) {
+				.arrow-indicator {
+					right: 100px;
+					bottom: 5px;
+				}
+			}
+		</style>
 	</head>
 
-	<body class="">
+	<body>
 		<div id="app"></div>
 
 		<!-- Scripts -->
 		<!-- Libs JS -->
+
+		<div class="arrow-indicator d-none text-primary position-fixed">
+			<i class="bi bi-arrow-right fs-1"></i>
+		</div>
 
 		<script type="module" src="/src/main.js"></script>
 		<script

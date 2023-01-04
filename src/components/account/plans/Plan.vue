@@ -18,6 +18,9 @@
 		length: 1,
 	});
 
+	let chat = null;
+	let arrow = null;
+
 	const loading = ref(false);
 
 	function save() {
@@ -42,14 +45,42 @@
 			.finally(() => {
 				loading.value = false;
 			});
+		startPointer();
 	}
 
+	function stopPointer() {
+		// arrow.classList.remove("grabBlink");
+		arrow.classList.add("d-none");
+		if (chat !== null) chat.classList.remove("grabShake");
+	}
+
+	async function startPointer() {
+		arrow.classList.remove("d-none");
+		if (chat !== null) {
+			chat.classList.add("grabShake");
+		} else {
+			chat = document.querySelector(".cc-xkyq");
+			chat.classList.add("grabShake");
+		}
+
+		chat.addEventListener("click", (e) => {
+			stopPointer();
+			document.querySelector(".plan-close-btn").click();
+		});
+	}
+
+	onMounted(() => {
+		chat = document.querySelector(".cc-xkyq");
+		arrow = document.querySelector(".arrow-indicator");
+	});
 </script>
 
 <template>
 	<div
 		class="modal fade"
 		:id="'plan_modal_' + plan.id"
+		data-bs-backdrop="static"
+		data-bs-keyboard="false"
 		tabindex="-1"
 		role="dialog"
 		aria-labelledby="exampleModalCenterTitle"
@@ -65,10 +96,13 @@
 						Contact support for next steps
 					</div>
 				</div>
-				<div class="modal-footer border-0 d-flex justify-content-center">
+				<div
+					class="modal-footer border-0 d-flex justify-content-center"
+				>
 					<button
+						@click="stopPointer()"
 						type="button"
-						class="btn btn-primary rounded-pill btn-sm"
+						class="plan-close-btn btn btn-primary rounded-pill btn-sm"
 						data-bs-dismiss="modal"
 					>
 						Close

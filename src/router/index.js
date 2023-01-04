@@ -26,7 +26,7 @@ const router = createRouter({
 		{
 			path: "/account",
 			name: "account",
-			redirect: "/account/subscriptions",
+			redirect: "/account/plans",
 			component: UserVue,
 			beforeEnter: (to, from, next) => {
 				console.log(user.getUser())

@@ -38,7 +38,7 @@
 				<div class="offset-xl-2 col-xl-8 offset-lg-2 col-lg-8 col-12">
 					<!-- heading -->
 					<div class="text-center mb-8">
-						<h1 class="display-4 mb-3 fw-bold">A plan for you</h1>
+						<h1 class="display-6 mb-3 fw-bold">Select a plan</h1>
 						<p class="lead small px-md-14">
 							We make a special plan for everyone. Don't hesitate
 							to contact support for a special one for you.
