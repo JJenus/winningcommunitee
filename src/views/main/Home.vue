@@ -120,9 +120,8 @@
 								<!-- text -->
 
 								<p class="mb-0 px-4">
-									Fill in the details of the job be sure to
-									include your location restrictions if you
-									have em!
+									Fill in your details, make sure all your
+									details are correct.
 								</p>
 							</div>
 						</div>
@@ -143,10 +142,8 @@
 								<!-- text -->
 
 								<p class="mb-0 px-2">
-									The base price for a job listing on Geeks is
-									$29 per month. Choose one of our optional
-									upgrades to gain more visibility to your
-									listing.
+									Choose one of our optional plans to gain
+									more from this amazing community.
 								</p>
 							</div>
 						</div>
@@ -167,9 +164,8 @@
 								<!-- text -->
 
 								<p class="mb-0 px-3">
-									Preview your listing and once you are ready
-									to post it you can add your billing
-									information.
+									Contact support via our live chat channel
+									and gain full access to our services.
 								</p>
 							</div>
 						</div>
@@ -206,7 +202,10 @@
 				</div>
 				<!-- Testimonial -->
 				<div class="row">
-					<div v-for="testimony in testimonials" class="col-md-6 col-12 mb-4 mb-lg-0">
+					<div
+						v-for="testimony in testimonials"
+						class="col-md-6 col-12 mb-4 mb-lg-0"
+					>
 						<!-- Card -->
 						<div class="card shadow-lg">
 							<!-- Card body -->
