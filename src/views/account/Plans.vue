@@ -1,10 +1,36 @@
 <script setup>
 	import axios from "axios";
 	import { onMounted, ref } from "vue";
+	import { user } from "@/stores/user";
+
 	import PlanVue from "@/components/account/plans/Plan.vue";
 
 	const env = import.meta.env;
 	const plans = ref([]);
+	const subscription = ref(null);
+	const subscriptions = ref([]);
+
+	function loadSubscriptions() {
+		let config = {
+			method: "GET",
+			url: `${env.VITE_BE_API}/user-subscriptions/${user.getUser().id}`,
+		};
+
+		axios
+			.request(config)
+			.then((res) => {
+				console.log(res);
+				let data = res.data;
+				subscriptions.value = data;
+				if (data.length > 0) {
+					subscription.value = data[data.length - 1];
+				}
+			})
+			.catch((error) => {
+				console.log(error);
+			})
+			.finally(() => {});
+	}
 
 	async function loadPlans() {
 		let config = {
@@ -29,6 +55,7 @@
 	}
 
 	onMounted(() => {
+		loadSubscriptions();
 		loadPlans();
 	});
 </script>
@@ -48,7 +75,17 @@
 						</p>
 					</div>
 				</div>
-				<PlanVue v-for="plan in plans" :plan="plan"></PlanVue>
+				<PlanVue
+					v-if="subscription === null"
+					v-for="plan in plans"
+					:plan="plan"
+					:subs="subscriptions"
+				></PlanVue>
+				<PlanVue
+					v-else-if="subscription.status !== 'active'"
+					:plan="subscription.subscription"
+					:subs="subscriptions"
+				></PlanVue>
 			</div>
 			<div
 				v-if="plans.length === 0"

@@ -8,6 +8,10 @@
 		plan: {
 			required: true,
 		},
+		subs: {
+			type: Array,
+			required: true,
+		},
 	});
 
 	const appUser = user.getUser();
@@ -23,7 +27,18 @@
 
 	const loading = ref(false);
 
+	function active() {
+		return props.subs.find((sub) => {
+			return props.plan.id == sub.subscription.id;
+		});
+	}
+
 	function save() {
+		console.log(props.subs);
+		if (active()) {
+			return;
+		}
+
 		loading.value = true;
 		form.value.userId = appUser.id;
 		form.value.subscriptionId = props.plan.id;
@@ -135,7 +150,12 @@
 								>/{{ plan.duration }}</span
 							>
 						</h1>
+						<a v-if="active()" class="btn btn-outline-primary"
+							>Subscribed</a
+						>
+
 						<a
+							v-else
 							data-bs-toggle="modal"
 							:data-bs-target="'#plan_modal_' + plan.id"
 							@click="save()"
