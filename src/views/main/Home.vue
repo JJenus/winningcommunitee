@@ -204,7 +204,7 @@
 				<div class="row">
 					<div
 						v-for="testimony in testimonials"
-						class="col-md-6 col-12 mb-4 mb-lg-0"
+						class="col-md-6 col-lg-4 col-12 mb-4"
 					>
 						<!-- Card -->
 						<div class="card shadow-lg">
@@ -213,7 +213,7 @@
 								<i
 									class="bi bi-quote text-light-primary lh-1 fs-1"
 								></i>
-								<p class="lead text-dark mt-3">
+								<p class="text-dark mt-3 st-h">
 									{{ testimony.testimony }}
 								</p>
 							</div>
@@ -223,7 +223,7 @@
 							>
 								<div class="mt-n8">
 									<img
-										src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
+										src="/assets/img/avatar/default-avatar.png"
 										alt=""
 										class="rounded-circle border-primary avatar-xl border border-4"
 									/>
@@ -244,3 +244,16 @@
 		</div>
 	</div>
 </template>
+
+<style scoped>
+	.st-h {
+		min-height: 100px;
+		max-height: 100px;
+		overflow-y: auto;
+		-ms-overflow-style: none; /* Internet Explorer 10+ */
+		scrollbar-width: none; /* Firefox */
+	}
+	.st-h::-webkit-scrollbar {
+		display: none; /* Safari and Chrome */
+	}
+</style>

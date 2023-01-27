@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" style="overflow-x: hidden">
+<html lang="en" style="overflow: hidden" id="html">
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -83,17 +83,49 @@
 		<title>Winning Communitee</title>
 
 		<style>
+			body {
+				position: fixed;
+				top: 0;
+				left: 0;
+				bottom: 0;
+				right: 0;
+			}
+			.ps .ps__rail-y .ps__thumb-y {
+				background-color: #754ffe;
+				opacity: 0.9;
+				filter: alpha(opacity=90);
+			}
+
+			.ps .ps__rail-y:hover > .ps__thumb-y,
+			.ps__rail-y:focus > .ps__thumb-y,
+			.ps__rail-y.ps--clicking .ps__thumb-y {
+				background-color: #ffaa46;
+				height: 11px;
+			}
+
+			div .ps .ps__rail-x:hover,
+			.ps .ps__rail-y:hover,
+			.ps .ps__rail-x:focus,
+			.ps .ps__rail-y:focus,
+			.ps .ps__rail-x.ps--clicking,
+			.ps .ps__rail-y.ps--clicking {
+				background-color: rgba(0, 0, 0, 0.4) !important;
+			}
+
+			.ps .ps__rail-y .ps__thumb-y:hover {
+				background-color: #754ffe;
+			}
 			.arrow-indicator {
 				bottom: 0;
 				right: 80px;
 				animation: blink 1s linear infinite;
 			}
 
-			.grabShake{
+			.grabShake {
 				animation: shake 1s linear infinite;
 			}
 
-			.grabBlink{
+			.grabBlink {
 				animation: blink 1s linear infinite;
 			}
 
@@ -141,7 +173,7 @@
 		</style>
 	</head>
 
-	<body>
+	<body id="body">
 		<div id="app"></div>
 
 		<!-- Scripts -->
@@ -185,16 +217,9 @@
 			})();
 		</script>
 
-		<script type="text/javascript">
-			window.$crisp = [];
-			window.CRISP_WEBSITE_ID = "9b4d0c4c-32c3-4ebc-809f-66ce1457842b";
-			(function () {
-				d = document;
-				s = d.createElement("script");
-				s.src = "https://client.crisp.chat/l.js";
-				s.async = 1;
-				d.getElementsByTagName("head")[0].appendChild(s);
-			})();
-		</script>
+		<script
+			src="//code.tidio.co/zzd5knlzfvhbpj8ap8pjl6nlx36ywluy.js"
+			async
+		></script>
 	</body>
 </html>
