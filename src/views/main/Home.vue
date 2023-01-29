@@ -2,6 +2,7 @@
 	import axios from "axios";
 	import { onMounted, ref } from "vue";
 	import { storage } from "@/stores/utility";
+	import Testimonials from "../../components/main/Testimonials.vue";
 
 	//CODES
 	const env = import.meta.env;
@@ -65,27 +66,10 @@
 	onMounted(() => {
 		loadTestifiers();
 	});
-
-	// (function (w, d, s, o, f, js, fjs) {
-	// 	w["fsStandingsEmbed"] = o;
-	// 	w[o] =
-	// 		w[o] ||
-	// 		function () {
-	// 			(w[o].q = w[o].q || []).push(arguments);
-	// 		};
-	// 	(js = d.createElement(s)), (fjs = d.getElementsByTagName(s)[0]);
-	// 	js.id = o;
-	// 	js.src = f;
-	// 	js.async = 1;
-	// 	fjs.parentNode.insertBefore(js, fjs);
-	// })(window, document, "script", "mw", "assets/js/standings.js");
-
-	// mw("params", { leagueID: 7665, elementID: "fb-standings" });
-	// mw("params", { leagueID: 7704, elementID: "fs-standings" });
 </script>
 
 <template>
-	<div class="bg-dark pb-4">
+	<div class="bg-dark pb-0">
 		<div class="container px-4 pt-4 px-lg-0">
 			<div class="row text-light mb-4">
 				<div class="offset-xl-1 col-xl-10 col-md-12 col-12">
@@ -185,57 +169,26 @@
 			</div>
 		</div>
 
-		<div class="py-8 py-lg-18 bg-">
-			<div class="container">
-				<div class="row mb-8 justify-content-center">
-					<div class="col-lg-6 col-md-12 col-12 text-center">
-						<!-- caption -->
-						<h2 class="display-4 fw-bold text-light">
-							The community loves it
-						</h2>
-						<!-- Para -->
-						<p class="h2 text-muted">
-							Optimized for a great user experience.
-						</p>
-						<p class="lead">100+ people are already signed up</p>
-					</div>
-				</div>
-				<!-- Testimonial -->
+		<div class="py-10 ">
+			<!-- Container -->
+			<div class="container-fluid">
 				<div class="row">
-					<div
-						v-for="testimony in testimonials"
-						class="col-md-6 col-lg-4 col-12 mb-4"
-					>
-						<!-- Card -->
-						<div class="card shadow-lg">
-							<!-- Card body -->
-							<div class="card-body p-8 text-center">
-								<i
-									class="bi bi-quote text-light-primary lh-1 fs-1"
-								></i>
-								<p class="text-dark mt-3 st-h">
-									{{ testimony.testimony }}
+					<div class="offset-xl-2 col-xl-8 col-12 text-light">
+						<!-- Row -->
+						<div class="row mb-4 ">
+							<div class="text-center col-12 mb-8 text-light">
+								<!-- Heading -->
+								<h2 class="display-4 fw-bold text-light">
+									The community loves it
+								</h2>
+								<!-- Para -->
+								<p class="h2 text-muted">
+									Optimized for a great user experience.
 								</p>
+								<p class="small">100+ people are already signed up</p>
 							</div>
-							<!-- Card Footer -->
-							<div
-								class="card-footer bg-primary text-center border-top-0"
-							>
-								<div class="mt-n8">
-									<img
-										src="/assets/img/avatar/default-avatar.png"
-										alt=""
-										class="rounded-circle border-primary avatar-xl border border-4"
-									/>
-								</div>
-								<div class="mt-2 text-white">
-									<h3 class="text-white mb-0">
-										{{ testimony.userName }}
-									</h3>
-									<p class="text-white-50 d-none mb-1">
-										Joined on February
-									</p>
-								</div>
+							<div class="col-md-12 col-12">
+								<Testimonials :testimonials="testimonials"></Testimonials>
 							</div>
 						</div>
 					</div>
@@ -245,14 +198,14 @@
 	</div>
 </template>
 
-<style scoped>
-	.st-h {
-		min-height: 100px;
-		max-height: 100px;
+<style >
+	/* .st-h {
+		min-height: 200px;
+		max-height: 200px;
 		overflow-y: auto;
-		-ms-overflow-style: none; /* Internet Explorer 10+ */
-		scrollbar-width: none; /* Firefox */
-	}
+		-ms-overflow-style: none; /* Internet Explorer 10+ /
+		scrollbar-width: none; /* Firefox /
+	} */
 	.st-h::-webkit-scrollbar {
 		display: none; /* Safari and Chrome */
 	}

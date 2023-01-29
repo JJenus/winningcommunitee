@@ -2,7 +2,7 @@
 	import { RouterView } from "vue-router";
 	import PerfectScrollbar from "perfect-scrollbar";
 
-	const body = document.querySelector("#body");
+	const body = document.querySelector(".ps-scroll");
 	const ps = new PerfectScrollbar(body);
 
 </script>

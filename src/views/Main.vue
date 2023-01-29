@@ -13,7 +13,7 @@
 	<RouterView />
 	<AuthModalVue />
 	<Footer />
-    <!-- <WonMarque></WonMarque> -->
+    <WonMarque></WonMarque>
 </template>
 
 <style scoped>
