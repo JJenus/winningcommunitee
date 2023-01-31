@@ -25,11 +25,14 @@ export const util = {
 				: "")
 		);
 	},
+	resizeImg(uri, width = 100) {
+		let uArr = uri.split(".com/");
+		return uArr.join(`.com/resize=width:${width}/`);
+	},
 };
 
 export const storage = {
 	save(type, data) {
-		console.log("Saving to localstorage...", type)
 		if (data.length < 1) return;
 		const obj = {
 			data: data,
@@ -40,7 +43,7 @@ export const storage = {
 	},
 
 	reload(type = "superpick") {
-		console.log("Reloading from localstorage...")
+		console.log("Reloading from localstorage...");
 		const obj = localStorage.getItem("wc_pack_" + type);
 		if (obj !== "undefined" && obj !== null && obj) {
 			const data = JSON.parse(obj);
@@ -50,10 +53,10 @@ export const storage = {
 			if (isExp) {
 				return [];
 			}
-			console.log(data.data)
+			console.log(data.data);
 			return data.data;
-		}else{
-			console.log("not found", obj)
+		} else {
+			console.log("not found", obj);
 		}
 		return [];
 	},

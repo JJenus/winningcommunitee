@@ -16,9 +16,9 @@
 
 	var options = {
 		strings: [
-			"A community to built trust.",
+			"A community to built <span class='text-success'>trust</span>.",
 			"Losing <strong class='text-danger'>is not</strong> an option.",
-            "The <strong class='text-success'>Arena of Success</strong>"
+			"The <strong class='text-success'>Arena of Success</strong>",
 		],
 		// Optionally use an HTML element to grab strings from (must wrap each string in a <p>)
 		stringsElement: null,
@@ -31,9 +31,9 @@
 		// time before backspacing
 		backDelay: 500,
 		// loop
-		loop: true,
+		loop: false,
 		// false = infinite
-		loopCount: 5,
+		// loopCount: 5,
 		// show cursor
 		showCursor: false,
 		// character for cursor

@@ -5,6 +5,7 @@
 	import "swiper/css/pagination";
 	import "swiper/css/navigation";
 	import { Pagination, Navigation, Autoplay } from "swiper";
+	import { util } from "@/stores/utility";
 
 	const props = defineProps({
 		testimonials: {
@@ -94,7 +95,7 @@
 						<div>
 							<img
 								v-if="testimony.imgUrl"
-								:src="testimony.imgUrl"
+								:src="util.resizeImg(testimony.imgUrl, 100)"
 								alt=""
 								class="avatar avatar-lg rounded-circle"
 							/>
