@@ -4,16 +4,16 @@
 	import Footer from "@/components/main/Footer.vue";
 	import Header from "@/components/main/Header.vue";
 	import AuthModalVue from "@/components/main/AuthModal.vue";
-	import WonMarque from "@/components/main/WonMarque.vue";
 </script>
 
 <template>
-	<Header />
-	<Navbar />
-	<RouterView />
-	<AuthModalVue />
-	<Footer />
-    <WonMarque></WonMarque>
+	<div>
+		<Header />
+		<Navbar />
+		<RouterView />
+		<AuthModalVue />
+		<Footer />
+	</div>
 </template>
 
 <style scoped>

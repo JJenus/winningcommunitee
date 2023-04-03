@@ -3,6 +3,9 @@
 	import { onMounted, ref } from "vue";
 	import { storage } from "@/stores/utility";
 	import Testimonials from "../../components/main/Testimonials.vue";
+	import Banner from "../../components/main/Banner.vue";
+	import WonMarque from "@/components/main/WonMarque.vue";
+	import SwiperTag from "../../components/main/SwiperTag.vue";
 
 	//CODES
 	const env = import.meta.env;
@@ -31,7 +34,7 @@
 		axios
 			.request(config)
 			.then((res) => {
-				console.log(res);
+				// console.log(res);
 				let data = res.data;
 				predictions.value = data;
 				storage.save("free_picks", data);
@@ -53,7 +56,7 @@
 		axios
 			.request(config)
 			.then((res) => {
-				console.log(res);
+				// console.log(res);
 				let data = res.data;
 				testimonials.value = data;
 			})
@@ -70,17 +73,27 @@
 
 <template>
 	<div class="bg-dark pb-0">
-		<div class="container px-4 pt-4 px-lg-0">
+		<div class="container-fluid px-4 pt-4 px-lg-0">
+			<div class="pt-xl-16 pt-lg-10 pt-4">
+				<div class="row justify-content-center">
+					<div class="col-md-6">
+						<Banner></Banner>
+					</div>
+
+					<div class="col-md-5 text-light">
+						<h5 class="h3 d-none text-light text-center d-none">Coverage</h5>
+						<div class="">
+							<SwiperTag />
+						</div>
+					</div>
+				</div>
+			</div>
+
 			<div class="row text-light mb-4">
 				<div class="offset-xl-1 col-xl-10 col-md-12 col-12">
 					<div class="row text-center">
 						<!-- col -->
 						<div class="col-md-12 px-lg-10 mb-8 mt-6 text-white">
-							<span
-								class="text-uppercase text-white text-white fw-semi-bold ls-md"
-								>Process</span
-							>
-							<!-- heading -->
 							<h2 class="h1 fw-bold mt-3 text-white">
 								How It Works
 							</h2>
@@ -169,13 +182,21 @@
 			</div>
 		</div>
 
-		<div class="py-10 ">
+		<div class="py-10">
 			<!-- Container -->
 			<div class="container-fluid">
+				<div class="mb-4 pb-3">
+					<h5 class="h1 text-center mb-3 text-light">
+						The community
+					</h5>
+					<div>
+						<WonMarque></WonMarque>
+					</div>
+				</div>
 				<div class="row">
 					<div class="offset-xl-2 col-xl-8 col-12 text-light">
 						<!-- Row -->
-						<div class="row mb-4 ">
+						<div class="row mb-4">
 							<div class="text-center col-12 mb-8 text-light">
 								<!-- Heading -->
 								<h2 class="display-4 fw-bold text-light">
@@ -185,10 +206,14 @@
 								<p class="h2 text-muted">
 									Optimized for a great user experience.
 								</p>
-								<p class="small">100+ people are already signed up</p>
+								<p class="small">
+									100+ people are already signed up
+								</p>
 							</div>
 							<div class="col-md-12 col-12">
-								<Testimonials :testimonials="testimonials"></Testimonials>
+								<Testimonials
+									:testimonials="testimonials"
+								></Testimonials>
 							</div>
 						</div>
 					</div>
@@ -198,7 +223,7 @@
 	</div>
 </template>
 
-<style >
+<style>
 	/* .st-h {
 		min-height: 200px;
 		max-height: 200px;

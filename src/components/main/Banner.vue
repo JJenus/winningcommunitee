@@ -31,7 +31,7 @@
 		// time before backspacing
 		backDelay: 500,
 		// loop
-		loop: false,
+		loop: 20,
 		// false = infinite
 		// loopCount: 5,
 		// show cursor
@@ -80,21 +80,29 @@
 	>
 		<swiper-slide>
 			<!-- CONTENT -->
-			<div class="text-center">
+			<div class="h-100">
 				<!-- Caption -->
 				<h1
-					class="display-5 display-md-2 fw-bold mb-3 text-white ls-sm"
+					class="display-5 text-center display-md-2 fw-bold mb-3 text-white ls-sm"
 				>
 					Winning
 					<span class="text-warning"
 						><span class="text-light">-</span> Community</span
 					>
 				</h1>
-				<p
-					style="height: 10px"
-					class="mb-6 lead text-white-50 pe-lg-6"
-					id="typed"
-				></p>
+				<div class="px-md-4">
+					<div class="fs-3 text-center text-md-left mb-3 text-light">
+						More than just a prediction site. We're a community of
+						sports enthusiasts who share a common passion for the
+						game. Our goal is to inspire and motivate you to become
+						a better sports fan, and to help you achieve your goals.
+					</div>
+					<p
+						style="height: auto"
+						class="mb-6 fw-bold lead text-white-50 pe-lg-6 text-center"
+						id="typed"
+					></p>
+				</div>
 			</div>
 		</swiper-slide>
 	</swiper>

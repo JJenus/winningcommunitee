@@ -18,7 +18,7 @@
 		axios
 			.request(config)
 			.then((res) => {
-				console.log(res.data);
+				// console.log(res.data);
 				let data = res.data;
 				winners.value = data;
 			})
@@ -35,8 +35,7 @@
 
 <template>
 	<div
-		class="position-fixed bottom-0 py-2 bg-transparent w-100"
-		style="z-index: 3000"
+		class="position-relative py-2 bg-transparent w-100"
 	>
 		<Vue3Marquee
 			:pauseOnHover="true"
