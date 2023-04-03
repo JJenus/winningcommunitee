@@ -34,7 +34,7 @@
     class="mySwiper"
   > -->
 <template>
-	<div class="position-relative text-light px-3 px-xl-0">
+	<div class="position-relative d-none text-light px-3 px-xl-0">
 		<!-- controls -->
 		<div
 			v-if="testimonials.length > 0"
