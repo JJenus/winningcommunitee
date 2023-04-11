@@ -156,7 +156,7 @@
 					<div class="d-lg-flex align-items-center">
 						<div class="me-4">
 							<span
-								>© 2022 Geeks-UI, Inc. All Rights Reserved</span
+								>© Winningcommunitee. All Rights Reserved</span
 							>
 						</div>
 						<div>
