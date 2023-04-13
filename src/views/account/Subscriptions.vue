@@ -52,7 +52,8 @@
 		<!-- Card body -->
 		<div class="card-body">
 			<SubscriptionVue
-				v-for="subscription in subscriptions"
+				v-for="(subscription, i) in subscriptions"
+				:key="i"
 				:subscription="subscription"
 			></SubscriptionVue>
 			<div class="pt-5">

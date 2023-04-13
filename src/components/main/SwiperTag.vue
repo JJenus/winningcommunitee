@@ -53,7 +53,7 @@
 					class="h-100 w-100 fw-bold text-danger d-flex align-items-center justify-content-center flex-column"
 				>
 					<div class="mb-3 text-center mb-3">
-						<div class="mb-0 h5 fw-bold">Football</div>
+						<div class="mb-0 h5 fw-bold">Soccer</div>
 						<small class="m-0">Wins</small>
 					</div>
 					<div class="position-relative text-center">
@@ -74,8 +74,8 @@
 					class="h-100 w-100 fw-bold d-flex align-items-center justify-content-center flex-column"
 				>
 					<div class="mb-3 text-center mb-3">
-						<div class="mb-0 h5 fw-bold">Basketball</div>
-						<small class="m-0">Baskets</small>
+						<div class="mb-0 h5 fw-bold">NBA</div>
+						<small class="m-0">Basket Ball</small>
 					</div>
 					<div class="position-relative text-center">
 						<h1 class="display-1 fw-bold d-inline">108</h1>
@@ -95,8 +95,8 @@
 					class="h-100 w-100 d-flex text-dark fw-bold align-items-center justify-content-center flex-column"
 				>
 					<div class="mb-3 text-center mb-3">
-						<div class="mb-0 h5 fw-bold">American Football</div>
-						<small class="m-0">Touchdowns</small>
+						<div class="mb-0 h5 fw-bold">AFL</div>
+						<small class="m-0">Football Touchdowns</small>
 					</div>
 					<div class="position-relative text-center">
 						<h1 class="display-1 fw-bold d-inline">109</h1>

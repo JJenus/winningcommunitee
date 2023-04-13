@@ -35,7 +35,7 @@
 
 	function save() {
 		console.log(props.subs);
-		if (active()) {
+		if (!active()) {
 			return;
 		}
 
@@ -45,6 +45,13 @@
 
 		console.log(form.value);
 
+		const amount = props.plan.amount.replace("$", "");
+
+		const userMessage = `Hello ${appUser.name}, confirm your subscription request.`;
+		const planMessage = `SUBSCRIPTION REQUEST \n\nPlan: ${props.plan.title} \nCost: $${amount}`;
+		
+		console.log(userMessage, planMessage);
+
 		let config = {
 			method: "POST",
 			data: form.value,
@@ -53,14 +60,20 @@
 
 		axios
 			.request(config)
-			.then((res) => {})
+			.then((res) => {
+				setTimeout(() => {
+					console.log(res.data);
+					window.tidioChatApi.open();
+					window.tidioChatApi.messageFromOperator(userMessage);
+					window.tidioChatApi.messageFromOperator(planMessage);
+				}, 2000);
+			})
 			.catch((error) => {
 				console.log(error);
 			})
 			.finally(() => {
 				loading.value = false;
 			});
-		startPointer();
 	}
 
 	function stopPointer() {
@@ -85,8 +98,8 @@
 	}
 
 	onMounted(() => {
-		chat = document.querySelector(".cc-xkyq");
-		arrow = document.querySelector(".arrow-indicator");
+		// chat = document.querySelector(".cc-xkyq");
+		// arrow = document.querySelector(".arrow-indicator");
 	});
 </script>
 
@@ -102,13 +115,13 @@
 		aria-hidden="true"
 	>
 		<div
-			class="modal-dialog modal-dialog-cenptered modal-sm"
+			class="modal-dialog modal-dialog-centered modal-sm"
 			role="document"
 		>
 			<div class="modal-content modal-xl">
 				<div class="modal-body">
 					<div class="text-center fs-5">
-						Contact support for next steps
+						Contact support to make payment
 					</div>
 				</div>
 				<div
@@ -150,7 +163,7 @@
 								>/{{ plan.duration }}</span
 							>
 						</h1>
-						<a v-if="active()" class="btn btn-outline-primary"
+						<a v-if="!active()" class="btn btn-outline-primary"
 							>Subscribed</a
 						>
 
