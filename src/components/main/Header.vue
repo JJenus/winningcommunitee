@@ -47,18 +47,18 @@
 		class="navbar navbar-expand-md fsi-4 navbar-dark is-navbar-dark position-lg-absolute w-100"
 	>
 		<div
-			class="container-fluid px-0 d-flex justify-content-between text-white"
+			class="container-fluid px-0 d-flex align-items-center justify-content-between text-white"
 		>
 			<a class="navbar-brand" href="/">
 				<img
-					src="/assets/images/logo/logo.png"
+					src="/assets/images/logo/logo-white.png"
 					class="img-fluid d-none d-md-inline-block"
-					width="350"
+					width="270"
 				/>
 				<img
-					src="/assets/images/logo/logo.png"
+					src="/assets/images/logo/logo-white.png"
 					class="img-fluid d-md-none"
-					width="250"
+					width="200"
 				/>
 			</a>
 

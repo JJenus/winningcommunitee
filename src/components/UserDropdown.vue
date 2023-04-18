@@ -8,19 +8,19 @@
 <template>
 	<div class="dropdown ms-2">
 		<a
-			class="rounded-circle"
+			class="rounded-circle d-flex justify-content-center align-items-center"
 			href="#"
 			role="button"
 			data-bs-toggle="dropdown"
 		>
-			<div class="avatar avatar-md avatar-onliine">
+			<div class="avatar avatar-md avatar-onliine d-flex justify-content-center align-items-center">
 				<img
 					v-if="user.imgUrl !== null"
 					alt="avatar"
 					:src="user.imgUrl"
 					class="rounded-circle"
 				/>
-				<i v-else class="bi bi-person-circle fs-2"></i>
+				<i v-else class="bi text-light bi-person-circle h1 m-0 p-0"></i>
 			</div>
 		</a>
 		<div class="dropdown-menu dropdown-menu-end shadow">
