@@ -30,6 +30,10 @@
 			.finally(() => {});
 	}
 
+	function openTiidio() {
+		window.tidioChatApi.open();
+	}
+
 	onMounted(() => {
 		loadSubscriptions();
 	});
@@ -64,11 +68,12 @@
 						</div>
 						<div class="col-5 text-md-right">
 							<a
+								role="button"
 								type="button"
-								href="mailto:support@solidpayout.com"
+								@click="openTiidio()"
 								class="btn mb-3 mb-sm-0 btn-sm btn-primary font-weight-normal"
 							>
-								<i class="bi bi-envelope me-2"></i>
+								<i class="bi bi-chat me-2"></i>
 								Contact support
 							</a>
 						</div>
