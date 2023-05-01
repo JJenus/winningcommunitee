@@ -1,4 +1,67 @@
 import moment from "moment";
+import swal from "sweetalert";
+
+function notify(icon, title, message = "") {
+	swal({
+		title: title,
+		text: message,
+		icon: icon,
+		buttons: {
+			close: {
+				text: "Close",
+				value: false,
+				visible: true,
+				className: "btn btn-outline-primary",
+				closeModal: true,
+			},
+		},
+	});
+}
+
+export const alert = {
+	success(title = "Success", message = "") {
+		notify("success", title, message);
+	},
+	error(title, message = "") {
+		notify("error", title, message);
+	},
+	info(title, message = "") {
+		notify("info", title, message);
+	},
+	verify() {
+		swal({
+			title: "Verify account",
+			content:
+				"<p class='text-center'>Click on start verification or come back at your convinience</p>",
+			icon: "warning",
+			buttons: {
+				verification: {
+					text: "Start verification",
+					value: true,
+					visible: true,
+					className: "btn btn-outline-secondary",
+					closeModal: true,
+				},
+				close: {
+					text: "Close",
+					value: false,
+					visible: true,
+					className: "btn btn-outline-primary",
+					closeModal: true,
+				},
+			},
+			dangerMode: false,
+		}).then((next) => {
+			if (next) {
+				document.querySelector(".btn-close").click();
+				// open verification dialogue
+				document.querySelector("#btn-verify-modal").click();
+			} else {
+				// do nothing
+			}
+		});
+	},
+};
 
 export const util = {
 	format: function (number, decPlaces = 2, decSep = ".", thouSep = ",") {

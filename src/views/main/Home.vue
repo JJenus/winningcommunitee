@@ -34,13 +34,13 @@
 		axios
 			.request(config)
 			.then((res) => {
-				// console.log(res);
+				// // console.log(res);
 				let data = res.data;
 				predictions.value = data;
 				storage.save("free_picks", data);
 			})
 			.catch((error) => {
-				console.log(error);
+				// console.log(error);
 			})
 			.finally(() => {
 				loadingPredictions.value = false;
@@ -56,12 +56,12 @@
 		axios
 			.request(config)
 			.then((res) => {
-				// console.log(res);
+				// // console.log(res);
 				let data = res.data;
 				testimonials.value = data;
 			})
 			.catch((error) => {
-				console.log(error);
+				// console.log(error);
 			})
 			.finally(() => {});
 	}

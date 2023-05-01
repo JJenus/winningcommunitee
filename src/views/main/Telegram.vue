@@ -15,11 +15,11 @@ function getSettings() {
     .request(config)
     .then((res) => {
       let data = res.data;
-      console.log(data);
+      // console.log(data);
       if (data.telegramLink) telegramLink.value = data.telegramLink;
     })
     .catch((error) => {
-      console.log(error);
+      // console.log(error);
     });
 }
 
@@ -33,10 +33,10 @@ function interact() {
     .request(config)
     .then((res) => {
       let data = res.data;
-      console.log(data);
+      // console.log(data);
     })
     .catch((error) => {
-      console.log(error);
+      // console.log(error);
     });
 }
 

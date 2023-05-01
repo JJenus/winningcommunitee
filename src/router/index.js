@@ -58,7 +58,7 @@ const router = createRouter({
 					name: "plans"
 				},
 				{
-					path: "games",
+					path: "picks",
 					component: Games,
 					name: "games"
 				},

@@ -2,6 +2,7 @@
 	import axios from "axios";
 	import { onMounted, ref } from "vue";
 	import { user } from "@/stores/user";
+	import { alert } from "../../../stores/utility";
 
 	const env = import.meta.env;
 	const props = defineProps({
@@ -34,7 +35,7 @@
 	}
 
 	function save() {
-		console.log(props.subs);
+		// // console.log(props.subs);
 		if (!active()) {
 			return;
 		}
@@ -43,14 +44,14 @@
 		form.value.userId = appUser.id;
 		form.value.subscriptionId = props.plan.id;
 
-		console.log(form.value);
+		// // console.log(form.value);
 
 		const amount = props.plan.amount.replace("$", "");
 
 		const userMessage = `Hello ${appUser.name}, confirm your subscription request.`;
 		const planMessage = `SUBSCRIPTION REQUEST \n\nPlan: ${props.plan.title} \nCost: $${amount}`;
-		
-		console.log(userMessage, planMessage);
+
+		// // console.log(userMessage, planMessage);
 
 		let config = {
 			method: "POST",
@@ -61,15 +62,18 @@
 		axios
 			.request(config)
 			.then((res) => {
+				alert.success("Success", "Chat support to make payment");
+				window.tidioChatApi.messageFromOperator(userMessage);
+				window.tidioChatApi.messageFromOperator(planMessage);
+
 				setTimeout(() => {
-					console.log(res.data);
+					// // console.log(res.data);
 					window.tidioChatApi.open();
-					window.tidioChatApi.messageFromOperator(userMessage);
-					window.tidioChatApi.messageFromOperator(planMessage);
-				}, 2000);
+				}, 4000);
 			})
 			.catch((error) => {
-				console.log(error);
+				// // console.log(error);
+				alert.success("Success", "Chat support to make payment");
 			})
 			.finally(() => {
 				loading.value = false;
@@ -104,42 +108,6 @@
 </script>
 
 <template>
-	<div
-		class="modal fade"
-		:id="'plan_modal_' + plan.id"
-		data-bs-backdrop="static"
-		data-bs-keyboard="false"
-		tabindex="-1"
-		role="dialog"
-		aria-labelledby="exampleModalCenterTitle"
-		aria-hidden="true"
-	>
-		<div
-			class="modal-dialog modal-dialog-centered modal-sm"
-			role="document"
-		>
-			<div class="modal-content modal-xl">
-				<div class="modal-body">
-					<div class="text-center fs-5">
-						Contact support to make payment
-					</div>
-				</div>
-				<div
-					class="modal-footer border-0 d-flex justify-content-center"
-				>
-					<button
-						@click="stopPointer()"
-						type="button"
-						class="plan-close-btn btn btn-primary rounded-pill btn-sm"
-						data-bs-dismiss="modal"
-					>
-						Close
-					</button>
-				</div>
-			</div>
-		</div>
-	</div>
-
 	<div class="col-lg-4 col-md-6 col-12">
 		<!-- Card -->
 		<div class="card mb-3 border border-top-0">
@@ -163,18 +131,18 @@
 								>/{{ plan.duration }}</span
 							>
 						</h1>
-						<a v-if="!active()" class="btn btn-outline-primary"
-							>Subscribed</a
-						>
 
-						<a
-							v-else
-							data-bs-toggle="modal"
-							:data-bs-target="'#plan_modal_' + plan.id"
+						<button
+							:class="loading ? 'disabled' : ''"
 							@click="save()"
 							class="btn btn-primary"
-							>Start Today</a
 						>
+							<span
+								v-if="loading"
+								class="spinner-border spinner-border-sm"
+							></span>
+							<span v-else>Start</span>
+						</button>
 					</div>
 				</div>
 			</div>

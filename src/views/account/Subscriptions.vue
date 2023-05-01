@@ -16,12 +16,12 @@
 		axios
 			.request(config)
 			.then((res) => {
-				console.log(res);
+				// console.log(res);
 				let data = res.data;
 				subscriptions.value = data;
 			})
 			.catch((error) => {
-				console.log(error);
+				// console.log(error);
 			})
 			.finally(() => {});
 	}

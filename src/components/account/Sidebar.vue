@@ -41,57 +41,58 @@
 				<span class="navbar-header">Subscription</span>
 				<ul class="list-unstyled ms-n2 mb-4">
 					<!-- Nav item -->
-					<li :class="path=='games'? 'active':''" class="nav-item">
-						<a class="nav-link" href="games">
+					<li
+						:class="path == 'games' ? 'active' : ''"
+						class="nav-item"
+					>
+						<a class="nav-link" href="picks">
 							<i class="fe fe-credit-card nav-icon"></i>
-							Games
+							Picks
 						</a>
 					</li>
 					<!-- Nav item -->
-					<li :class="path=='subscriptions'? 'active':''" class="nav-item">
+					<li
+						:class="path == 'subscriptions' ? 'active' : ''"
+						class="nav-item d-none"
+					>
 						<a class="nav-link" href="subscriptions"
-							><i class="fe fe-calendar nav-icon"></i>My
-							Subscriptions
+							><i class="fe fe-calendar nav-icon"></i>
+							My Subscription
 						</a>
 					</li>
 
 					<!-- Nav item -->
-					<li :class="path=='plans'? 'active':''" class="nav-item">
+					<li
+						:class="path == 'plans' ? 'active' : ''"
+						class="nav-item"
+					>
 						<a class="nav-link" href="plans"
 							><i class="fe fe-calendar nav-icon"></i>
-							Plans
+							Subscription plans
 						</a>
-					</li>
-
-					<!-- Nav item -->
-					<li :class="path=='invoice'? 'active':''" class="nav-item disabled d-none">
-						<a class="nav-link disabled" href="/invoice"
-							><i class="fe fe-clipboard nav-icon"></i>Invoice</a
-						>
 					</li>
 				</ul>
 				<!-- Navbar header -->
 				<span class="navbar-header">Account Settings</span>
 				<ul class="list-unstyled ms-n2 mb-0">
 					<!-- Nav item -->
-					<li :class="path=='profile'? 'active':''" class="nav-item">
+					<li
+						:class="path == 'profile' ? 'active' : ''"
+						class="nav-item"
+					>
 						<a class="nav-link" href="profile">
 							<i class="fe fe-user nav-icon"></i>
 							Edit Profile
 						</a>
 					</li>
 					<!-- Nav item -->
-					<li :class="path=='security'? 'active':''" class="nav-item">
+					<li
+						:class="path == 'security' ? 'active' : ''"
+						class="nav-item"
+					>
 						<a class="nav-link" href="security"
 							><i class="fe fe-settings nav-icon"></i>Security</a
 						>
-					</li>
-					<!-- Nav item -->
-					<li class="nav-item">
-						<a class="nav-link">
-							<i class="fe fe-trash nav-icon"></i>
-							Delete Profile
-						</a>
 					</li>
 					<!-- Nav item -->
 					<li class="nav-item">
