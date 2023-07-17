@@ -63,12 +63,12 @@
 			.request(config)
 			.then((res) => {
 				alert.success("Success", "Chat support to make payment");
-				window.tidioChatApi.messageFromOperator(userMessage);
-				window.tidioChatApi.messageFromOperator(planMessage);
+				// window.Tawk_API.sendMessage(userMessage);
+				// window.Tawk_API.sendMessage("planMessage");
 
 				setTimeout(() => {
 					// // console.log(res.data);
-					window.tidioChatApi.open();
+					Tawk_API.maximize();
 				}, 4000);
 			})
 			.catch((error) => {
