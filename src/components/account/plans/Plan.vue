@@ -49,7 +49,7 @@
 		const amount = props.plan.amount.replace("$", "");
 
 		const userMessage = `Hello ${appUser.name}, confirm your subscription request.`;
-		const planMessage = `SUBSCRIPTION REQUEST \n\nPlan: ${props.plan.title} \nCost: $${amount}`;
+		const planMessage = `SUBSCRIPTION REQUEST \n\nPlan: ${props.plan.title} \nPrice: $${amount}`;
 
 		// // console.log(userMessage, planMessage);
 
@@ -65,10 +65,15 @@
 				alert.success("Success", "Chat support to make payment");
 				// window.Tawk_API.sendMessage(userMessage);
 				// window.Tawk_API.sendMessage("planMessage");
+				$crisp.push([
+					"do",
+					"message:send",
+					["text", `${planMessage}`],
+				]);
 
 				setTimeout(() => {
 					// // console.log(res.data);
-					Tawk_API.maximize();
+					$crisp.push(["do", "chat:open"]);
 				}, 4000);
 			})
 			.catch((error) => {
@@ -80,31 +85,7 @@
 			});
 	}
 
-	function stopPointer() {
-		// arrow.classList.remove("grabBlink");
-		arrow.classList.add("d-none");
-		if (chat !== null) chat.classList.remove("grabShake");
-	}
-
-	async function startPointer() {
-		arrow.classList.remove("d-none");
-		if (chat !== null) {
-			chat.classList.add("grabShake");
-		} else {
-			chat = document.querySelector(".cc-xkyq");
-			chat.classList.add("grabShake");
-		}
-
-		chat.addEventListener("click", (e) => {
-			stopPointer();
-			document.querySelector(".plan-close-btn").click();
-		});
-	}
-
-	onMounted(() => {
-		// chat = document.querySelector(".cc-xkyq");
-		// arrow = document.querySelector(".arrow-indicator");
-	});
+	onMounted(() => {});
 </script>
 
 <template>

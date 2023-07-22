@@ -3,6 +3,15 @@
 
 	import NavbarVue from "@/components/account/Navbar.vue";
 	import SidebarVue from "@/components/account/Sidebar.vue";
+	import { onMounted } from "vue";
+	import { user as appUser } from "@/stores/user";
+
+	const user = appUser.getUser();
+
+	onMounted(() => {
+		$crisp.push(["set", "user:nickname", [user.name]]);
+		$crisp.push(["set", "user:email", [user.email]]);
+	});
 </script>
 
 <template>
