@@ -4,6 +4,7 @@
 
 	const env = import.meta.env;
 
+	console.log(env);
 	const form = ref({
 		email: "",
 		subject: "",
@@ -30,7 +31,7 @@
 </script>
 
 <template>
-	<div class="bg-dark pb-8 pt-xl-6 ">
+	<div class="bg-dark pb-8 pt-xl-6">
 		<div class="pb-6 pt-4">
 			<div class="container">
 				<div class="row">
@@ -38,11 +39,11 @@
 						<div class="row text-white">
 							<div class="col-lg-9 col-md-12 col-12 mb-8">
 								<h2 class="mb-3 display-4 fw-bold text-white">
-									A simple and fast experience out of the
-									box.
+									A simple and fast experience out of the box.
 								</h2>
 								<p class="h2 text-muted">
-									Everything you need, contact us via any of our support channels.
+									Everything you need, contact us via any of
+									our support channels.
 								</p>
 							</div>
 							<div class="col-lg-12 col-md-12 col-12">
@@ -56,9 +57,7 @@
 										<div
 											class="icon-shape icon-lg bg-primary h3 text-white rounded-3 mb-4"
 										>
-											<i
-												class="bi bi-at fs-2"
-											></i>
+											<i class="bi bi-at fs-2"></i>
 										</div>
 										<!-- heading -->
 										<h2 class="fw-bold text-white">
@@ -66,10 +65,14 @@
 										</h2>
 										<!-- text -->
 										<p class="fs-4 text-muted">
-											<a href="mailto:support@winningcommunity.com">support@winningcommunity.com</a>
-											<br>
-											Contact us via email for detailed support of the platform 
-											and easily track the process.
+											<a
+												:href="`mailto:${env.VITE_SUPPORT_EMAIL}`"
+												>{{ env.VITE_SUPPORT_EMAIL }}</a
+											>
+											<br />
+											Contact us via email for detailed
+											support of the platform and easily
+											track the process.
 										</p>
 									</div>
 									<!-- col -->
@@ -80,7 +83,9 @@
 										<div
 											class="icon-shape icon-lg bg-primary h3 text-white rounded-3 mb-4"
 										>
-											<i class="bi bi-chat-square-fill fs-3"></i>
+											<i
+												class="bi bi-chat-square-fill fs-3"
+											></i>
 										</div>
 										<!-- heading -->
 										<h2 class="fw-bold text-white">
@@ -88,7 +93,8 @@
 										</h2>
 										<!-- text -->
 										<p class="fs-4 text-muted">
-											Contact us via live chat for instant support on any and everything.
+											Contact us via live chat for instant
+											support on any and everything.
 										</p>
 									</div>
 								</div>

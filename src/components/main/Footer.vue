@@ -2,6 +2,8 @@
 	import moment from "moment";
 
 	const env = import.meta.env;
+
+
 	function dateNow() {
 		return moment().format("YYYY-MM-DD");
 	}
@@ -36,7 +38,7 @@
 				<!-- Desc -->
 				<div class="col-md-6 col-12 text-center text-md-start">
 					<span
-						>© {{ dateNow() }} Community winner. Predictions made
+						>© {{ dateNow() }} Community winners. Predictions made
 						better by <a href="/sure-pics/">Sure picks</a></span
 					>
 				</div>
@@ -139,7 +141,7 @@
 							339 McDermott Points Hettingerhaven, NV 15283
 						</p>
 						<p class="mb-1">
-							Email: <a href="#">support@winningcommunitee.com</a>
+							Email: <a href="#">{{env.VITE_SUPPORT_EMAIL}}</a>
 						</p>
 						<p>
 							Phone:
@@ -156,7 +158,7 @@
 					<div class="d-lg-flex align-items-center">
 						<div class="me-4">
 							<span
-								>© Winningcommunitee. All Rights Reserved</span
+								>© {{env.DOMAIN_NAME}}. All Rights Reserved</span
 							>
 						</div>
 						<div>
