@@ -34,9 +34,29 @@
 		});
 	}
 
+	function startTidioChat(planMessage) {
+		tidioChatApi.open();
+		$crisp.push(["do", "message:send", ["text", `${planMessage}`]]);
+
+		setTimeout(() => {
+			// // console.log(res.data);
+			$crisp.push(["do", "chat:open"]);
+		}, 4000);
+	}
+
+	function startCrispChat(planMessage) {
+		$crisp.push(["do", "message:send", ["text", `${planMessage}`]]);
+
+		setTimeout(() => {
+			// // console.log(res.data);
+			$crisp.push(["do", "chat:open"]);
+		}, 4000);
+	}
+
 	function save() {
 		// // console.log(props.subs);
-		if (!active()) {
+		if (active()) {
+			alert.error("Already on this plan!");
 			return;
 		}
 
@@ -64,17 +84,7 @@
 			.then((res) => {
 				alert.success("Success", "Chat support to make payment");
 				// window.Tawk_API.sendMessage(userMessage);
-				// window.Tawk_API.sendMessage("planMessage");
-				$crisp.push([
-					"do",
-					"message:send",
-					["text", `${planMessage}`],
-				]);
-
-				setTimeout(() => {
-					// // console.log(res.data);
-					$crisp.push(["do", "chat:open"]);
-				}, 4000);
+				startTidioChat(planMessage);
 			})
 			.catch((error) => {
 				// // console.log(error);
@@ -118,10 +128,12 @@
 							@click="save()"
 							class="btn btn-primary"
 						>
-							<span
-								v-if="loading"
-								class="spinner-border spinner-border-sm"
-							></span>
+							<span v-if="loading">
+								Please wait...
+								<span
+									class="spinner-border spinner-border-sm ms-2"
+								></span>
+							</span>
 							<span v-else>Start</span>
 						</button>
 					</div>
