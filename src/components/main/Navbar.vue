@@ -16,11 +16,11 @@
 			icon: "bi bi-house",
 			path: "/home",
 		},
-		{
-			name: "Live",
-			icon: "bi bi-broadcast",
-			path: "/livescores",
-		},
+		// {
+		// 	name: "Live",
+		// 	icon: "bi bi-broadcast",
+		// 	path: "/livescores",
+		// },
 		{
 			name: "About",
 			icon: "bi bi-question-circle",
@@ -80,10 +80,10 @@
 									<div class="me-md-2">
 										<i
 											:class="nav.icon"
-											style="font-size: 1.5rem"
+											class="fs-3 fw-bold"
 										></i>
 									</div>
-									<span class="fs-6">{{ nav.name }}</span>
+									<!-- <span class="fs-6">{{ nav.name }}</span> -->
 								</div>
 							</a>
 						</div>

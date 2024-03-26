@@ -12,11 +12,11 @@
 			icon: "bi bi-house",
 			path: "/home",
 		},
-		{
-			name: "Live",
-			icon: "bi bi-broadcast",
-			path: "/livescores",
-		},
+		// {
+		// 	name: "Live",
+		// 	icon: "bi bi-broadcast",
+		// 	path: "/livescores",
+		// },
 		{
 			name: "About",
 			icon: "bi bi-question-circle",

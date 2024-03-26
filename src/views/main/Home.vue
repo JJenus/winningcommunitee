@@ -6,6 +6,8 @@
 	import Banner from "../../components/main/Banner.vue";
 	import WonMarque from "@/components/main/WonMarque.vue";
 	import SwiperTag from "../../components/main/SwiperTag.vue";
+	import Results from "../../components/Results.vue";
+	import Subsriptions from "../../components/Subsriptions.vue";
 
 	//CODES
 	const env = import.meta.env;
@@ -81,7 +83,9 @@
 					</div>
 
 					<div class="col-md-5 text-light">
-						<h5 class="h3 d-none text-light text-center d-none">Coverage</h5>
+						<h5 class="h3 d-none text-light text-center d-none">
+							Coverage
+						</h5>
 						<div class="">
 							<SwiperTag />
 						</div>
@@ -89,6 +93,13 @@
 				</div>
 			</div>
 
+			<div
+				class="mb-4 d-flex flex-column align-items-center justify-content-center mt-5"
+			>
+				<h2 class="h1 fw-bold my-3 text-white">Latest Matches</h2>
+				<Results></Results>
+				<Subsriptions />
+			</div>
 			<div class="row text-light mb-4">
 				<div class="offset-xl-1 col-xl-10 col-md-12 col-12">
 					<div class="row text-center">
